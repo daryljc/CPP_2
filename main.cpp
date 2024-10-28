@@ -21,6 +21,7 @@ int main() {
     while (cont == 0) 
     {
         count++;
+        cout << "Count number: " << count << endl;
         cout << "Hi. This program is designed to calculate for the volume of a cylinder. Would you like to continue? (Y/N): " << endl;
         cin >> response;
         if (response == "Y") {
@@ -30,8 +31,8 @@ int main() {
 
             cout << "" << endl;
             cout << response + " it is! Now, what radius value (in centimeters) would you like to assign it?" << endl;
-            cin >> radius;
-            values[0] = radius;
+            cin >> values[0];
+            radius = values[0];
 
             if (radius > 0) {
                 cout << "" << endl;
@@ -39,8 +40,8 @@ int main() {
 
                 cout << "" << endl;
                 cout << "Now assign a height value (in centimeters)!" << endl;
-                cin >> height;
-                values[1] = height;
+                cin >> values[1];
+                height = values[1];
                 cout << "" << endl;
 
                 if (height > 0) {
