@@ -1,43 +1,86 @@
 #include <iostream>
+#include <cmath>
+#include <thread>
 using namespace std;
 
+int radius;
+int height;
 
+double volume(double radius, double height) {
+    return 3.14159 * pow(radius, 2) * height;
+}
 
-
-string main() {
+int main() {
     string response;
     int cont = 0;
-    int count = 0; // Designed to count the amount of times the while loop iterates
+    int count = 1; // Designed to count the amount of times the while loop iterates
 
-    int radius;
-    int height;
-    int values[5] ={1, 2, 3, 4 ,5};
     
-    while (int cont = 0) 
+    int values[2] = {radius, height};
+    
+    while (cont == 0) 
     {
         count++;
-        cout << "Hi. This program is designed to calculate for the volume of a cylinder. Would you like to continue? (Y/N): ";
+        cout << "Hi. This program is designed to calculate for the volume of a cylinder. Would you like to continue? (Y/N): " << endl;
         cin >> response;
-        if (response == "Y")
-        {
+        if (response == "Y") {
+            cout << "" << endl;
+            cout << "Okay, great! Lets continue: Please pass a name for your cylinder. " << endl;
+            cin >> response;
+
+            cout << "" << endl;
+            cout << response + " it is! Now, what radius value (in centimeters) would you like to assign it?" << endl;
+            cin >> radius;
+            values[0] = radius;
+
+            if (radius > 0) {
+                cout << "" << endl;
+                cout << "You have chosen " << radius << " as the radius value for " + response + "." << endl;
+
+                cout << "" << endl;
+                cout << "Now assign a height value (in centimeters)!" << endl;
+                cin >> height;
+                values[1] = height;
+                cout << "" << endl;
+
+                if (height > 0) {
+                    for (int i = 0; i < 7; i++) {
+                        cout << "Calculating volume.." << endl;
+                        this_thread::sleep_for(chrono::milliseconds(500)); 
+                        for (int i = 0; i < 1; i++) {
+                            cout << "Calculating volume.." << endl;
+                            this_thread::sleep_for(chrono::milliseconds(500)); 
+                        }
+                    }
+
+                    double calc = volume(values[0], values[1]);
+                    cout << "" << endl;
+                    cout << "This is your volume in cubic centimeters: " << calc << endl;
+                    
+                } else {
+                    cout << "" << endl;
+                    cout << "Invalid input. Terminating program.";
+                    cont = 1;
+                }
+
+            } else {
+                cout << "" << endl;
+                cout << "Improper input. Terminating program.";
+                cont = 1;
+            }
 
         } 
-        else if (response == "N") 
-        {
+        else if (response == "N") {
+            cout << "" << endl;
             cout << "Understood. Terminating program.";
             cont = 1;
         } 
-        else 
-        {
+        else {
+            cout << "" << endl;
             cout << "Improper input detected. Terminating program.";
             cont = 1;
         }
     }
-    string number;
-    
-    cin >> number;  // Receives input from the user and stores it in the 'number' variable
-    cout << "You entered: " << number << endl;
-    return "";
 }
 
 /* 
